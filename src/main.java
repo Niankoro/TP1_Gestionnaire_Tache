@@ -15,7 +15,7 @@ public class main {
 
 	// Ajouter un membre
 	
-	public static void addMembre() {
+	public static boolean addMembre() {
 		System.out.println("=====================================");
 		System.out.println("Enter ID: ");
 		int id = 0;
@@ -27,7 +27,7 @@ public class main {
 		arrMembre.add(mem);
 
 		System.out.println("=====================================");
-
+return true;
 	}
 
 	// Supprimer un membre
@@ -78,7 +78,7 @@ public class main {
 
 	// Ajouter une tache
 	
-	public static void addTache() {
+	public static boolean addTache() {
 		System.out.println("=====================================");
 		System.out.println("Entrer ID tache: ");
 		int id = sc.nextInt();
@@ -94,6 +94,7 @@ public class main {
 		
 
 		System.out.println("=====================================");
+		return true;
 	}
 
 	// Supprimer une tache

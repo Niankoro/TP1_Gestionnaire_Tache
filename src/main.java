@@ -13,13 +13,13 @@ public class main {
 
 	static Scanner sc = new Scanner(System.in);
 
-	// ajouter un membre
+	// Ajouter un membre
+	
 	public static void addMembre() {
 		System.out.println("=====================================");
 		System.out.println("Enter ID: ");
 		int id = 0;
 		id = sc.nextInt();
-		
 		sc.nextLine();
 		System.out.println("Entrer le nom de la personne: ");
 		String nom = sc.nextLine();
@@ -30,10 +30,9 @@ public class main {
 
 	}
 
-	// supprimer un membre
+	// Supprimer un membre
+	
 	public static void deleteMembre(int id) {
-		System.out.println("=====================================");
-		System.out.println("Entrer ID membre pour l'élimination: ");
 		for (int i = 0; i < arrMembre.size(); i++) {
 			if (arrMembre.get(i).getId_Membre() == id) {
 				arrMembre.remove(i);
@@ -43,10 +42,11 @@ public class main {
 			}
 		}
 		System.out.println("=====================================");
-		// showAllPerson();
+		
 	}
 
-	// modifier un membre
+	// Modifier un membre
+	
 	public static void modifierMembre() {
 		System.out.println("=====================================");
 		System.out.println("Entrer ID membre pour la modification: ");
@@ -63,10 +63,10 @@ public class main {
 			}
 		}
 		System.out.println("=====================================");
-		// showAllPerson();
 	}
 
 	// Lister tous les membres
+	
 	public static void showAllMembre() {
 		System.out.println("=====================================");
 		for (int i = 0; i < arrMembre.size(); i++) {
@@ -77,6 +77,7 @@ public class main {
 	}
 
 	// Ajouter une tache
+	
 	public static void addTache() {
 		System.out.println("=====================================");
 		System.out.println("Entrer ID tache: ");
@@ -90,11 +91,13 @@ public class main {
 		String status = sc.nextLine();
 		Tache ta = new Tache(id, nom, description, status);
 		arrTache.add(ta);
+		
 
 		System.out.println("=====================================");
 	}
 
 	// Supprimer une tache
+	
 	public static void deleteTache(int id) {
 		System.out.println("=====================================");
 		System.out.println("Entrer ID de tache: ");
@@ -110,7 +113,8 @@ public class main {
 
 	}
 
-	// modifier un tache
+	// Modifier une tache
+	
 	public static void modifierTache() {
 		System.out.println("=====================================");
 		System.out.println("Entrer ID pour la modification: ");
@@ -133,8 +137,7 @@ public class main {
 			}
 		}
 		System.out.println("=====================================");
-		// showAllPerson();
-	}
+			}
 
 	public static void showAllTache() {
 
@@ -189,6 +192,7 @@ public class main {
 	}
 
 	// Lister les taches d'une personne
+	
 	public static void show_Own_Tache() {
 		System.out.println("Entrer ID membre pour la recherche: ");
 		int id = sc.nextInt();
@@ -202,17 +206,18 @@ public class main {
 		System.out.println("=====================================");
 	}
 
-	// Checher une tache par status
+	// Chercher une tache par status
+	
 	public static void searchTache() {
 		System.out.println("Entrer le status pour la recherche: ");
-		String stt;
-		sc.nextLine();
-		stt = sc.nextLine();
+		String status_tache;
+		status_tache = sc.nextLine();
 		System.out.println("=====================================");
-		System.out.println("Les taches avec status " + "(" + stt + "): ");
+		System.out.println("Les taches avec status " + "(" + status_tache + "): ");
 		for (int j = 0; j < arrTache.size(); j++) {
-			if (stt.compareTo(arrTache.get(j).getStatus()) == 0) {
+			if (status_tache.compareTo(arrTache.get(j).getStatus()) == 0) {
 				System.out.println(arrTache.get(j).toString());
+				break;
 			}
 		}
 		System.out.println("=====================================");
@@ -231,7 +236,8 @@ public class main {
 		System.out.println("9. Assigner une tache");
 		System.out.println("10. Lister tous les assigne");
 		System.out.println("11. Lister tous les taches d'un membre");
-		System.out.println("12. Checher une tache par status");
+		System.out.println("12. Chercher une tache par status");
+		System.out.println("Choisissez une option ci-dessus:");
 
 		return sc.nextLine();
 	}
@@ -242,7 +248,7 @@ public class main {
 			int v = Integer.parseInt(val.toString());
 			return rep = true;
 		} catch (Exception ex) {
-			System.out.println("Valeur numerique invalide !");
+			System.out.println("Valeur Saisie invalide !");
 			return rep = false;
 		}
 	}
@@ -256,7 +262,7 @@ public class main {
 			else
 				choix = "";
 
-		} while (choix != "13");
+		} while((choix != "1") || (choix != "2") || (choix != "3")  || (choix != "4")|| (choix != "5")|| (choix != "6")|| (choix != "7")|| (choix != "8")|| (choix != "9")|| (choix != "10")|| (choix != "11") || (choix != "12"));
 	}
 
 	public static void operation(int key) {
@@ -267,6 +273,8 @@ public class main {
 			break;
 		case 2:
 			System.out.println("Supprimer un membre:");
+			System.out.println("=====================================");
+			System.out.println("Entrer ID membre pour l'élimination: ");
 			deleteMembre(sc.nextInt());
 			break;
 		case 3:
@@ -298,7 +306,7 @@ public class main {
 			assigneTache();
 			break;
 		case 10:
-			System.out.println("Lister tous les assigne:");
+			System.out.println("Lister tout les assignes:");
 			showAllAssigne();
 			break;
 		case 11:
@@ -306,7 +314,7 @@ public class main {
 			show_Own_Tache();
 			break;
 		case 12:
-			System.out.println("Checher une tache par status:");
+			System.out.println("Chercher une tache par status:");
 			searchTache();
 			break;
 		case 13:
@@ -315,13 +323,6 @@ public class main {
 	}
 
 	public static void main(String[] args) {
-
-		/*
-		 * main m = new main();
-		 * 
-		 * m.lancer();
-		 */
-
 		String choix = "";
 		do {
 			choix = menu();
@@ -330,8 +331,7 @@ public class main {
 			else
 				choix = "";
 
-		} while (choix != "13");
-
+		} while ((choix != "1") || (choix != "2") || (choix != "3")  || (choix != "4")|| (choix != "5")|| (choix != "6")|| (choix != "7")|| (choix != "8")|| (choix != "9")|| (choix != "10")|| (choix != "11") || (choix != "12"));
 	}
 
 }
